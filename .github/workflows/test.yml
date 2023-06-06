@@ -16,5 +16,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: maven
-      - name: Run tests
+      - name: Build Image
+        run: mvn docker:build
+      - name: Run Tests
         run: mvn clean install
