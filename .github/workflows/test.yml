@@ -16,7 +16,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
           cache: maven
+      - name: Build
+        run: mvn clean install -DskipTests
       - name: Build Image
         run: mvn docker:build
       - name: Run Tests
-        run: mvn clean install
+        run: mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean install
