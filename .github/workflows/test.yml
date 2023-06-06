@@ -19,6 +19,6 @@ jobs:
       - name: Build
         run: mvn clean install -DskipTests
       - name: Build Image
-        run: mvn docker:build
+        run: mvn docker:build # I want this to happen as part of the build step. Also use spring-boot:build-image
       - name: Run Tests
-        run: mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean install
+        run: mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn test
